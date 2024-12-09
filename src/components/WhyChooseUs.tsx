@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Shield, Cloud, Activity, Smartphone } from 'lucide-react';
@@ -33,34 +32,34 @@ const WhyChooseUs = () => {
   });
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="overflow-hidden relative py-20">
       {/* Parallax Background */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+      <div className="absolute inset-0 opacity-5 bg-grid-pattern" />
       
-      <div className="container mx-auto px-4 relative">
+      <div className="container relative px-4 mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold text-center mb-16"
+          className="mb-16 text-3xl font-bold text-center md:text-4xl"
         >
           Why Choose the NCD Management Platform?
         </motion.h2>
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div ref={ref} className="grid grid-cols-1 gap-8 mx-auto max-w-5xl md:grid-cols-2">
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              className="flex items-start p-6 space-x-4 bg-white rounded-lg shadow-lg transition-shadow hover:shadow-xl"
             >
               <div className="p-3 bg-blue-100 rounded-lg">
                 <benefit.icon className="w-6 h-6 text-blue-600" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                <h3 className="mb-2 text-xl font-semibold">{benefit.title}</h3>
                 <p className="text-gray-600">{benefit.description}</p>
               </div>
             </motion.div>

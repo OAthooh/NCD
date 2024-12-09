@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -40,35 +40,35 @@ const Testimonials = () => {
 
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container px-4 mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          className="mb-12 text-3xl font-bold text-center md:text-4xl"
         >
           What Our Users Are Saying
         </motion.h2>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative mx-auto max-w-4xl">
           <motion.div
             key={currentIndex}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
-            className="bg-gray-50 rounded-xl p-8 md:p-12"
+            className="p-8 bg-gray-50 rounded-xl md:p-12"
           >
             <div className="flex flex-col items-center text-center">
               <img
                 src={testimonials[currentIndex].image}
                 alt={testimonials[currentIndex].name}
-                className="w-20 h-20 rounded-full mb-6 object-cover"
+                className="object-cover mb-6 w-20 h-20 rounded-full"
               />
-              <p className="text-lg md:text-xl text-gray-600 mb-6">
+              <p className="mb-6 text-lg text-gray-600 md:text-xl">
                 "{testimonials[currentIndex].text}"
               </p>
-              <h4 className="font-semibold text-lg">
+              <h4 className="text-lg font-semibold">
                 {testimonials[currentIndex].name}
               </h4>
               <p className="text-blue-600">
@@ -79,13 +79,13 @@ const Testimonials = () => {
 
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 p-2 bg-white rounded-full shadow-lg hover:bg-gray-50 transition-colors"
+            className="absolute left-0 top-1/2 p-2 bg-white rounded-full shadow-lg transition-colors -translate-x-12 -translate-y-1/2 hover:bg-gray-50"
           >
             <ChevronLeft className="w-6 h-6 text-gray-600" />
           </button>
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 p-2 bg-white rounded-full shadow-lg hover:bg-gray-50 transition-colors"
+            className="absolute right-0 top-1/2 p-2 bg-white rounded-full shadow-lg transition-colors translate-x-12 -translate-y-1/2 hover:bg-gray-50"
           >
             <ChevronRight className="w-6 h-6 text-gray-600" />
           </button>

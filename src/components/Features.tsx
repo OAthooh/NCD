@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Users, Stethoscope, Settings } from 'lucide-react';
@@ -21,7 +20,14 @@ const features = [
   },
 ];
 
-const FeatureCard = ({ title, icon: Icon, description, index }) => {
+interface FeatureCardProps {
+  title: string;
+  icon: React.ElementType;
+  description: string;
+  index: number;
+}
+
+const FeatureCard = ({ title, icon: Icon, description, index }: FeatureCardProps) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -33,13 +39,13 @@ const FeatureCard = ({ title, icon: Icon, description, index }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.2 }}
-      className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+      className="p-6 bg-white rounded-xl shadow-lg transition-shadow hover:shadow-xl"
     >
       <div className="flex flex-col items-center text-center">
-        <div className="p-3 bg-blue-100 rounded-full mb-4">
+        <div className="p-3 mb-4 bg-blue-100 rounded-full">
           <Icon className="w-8 h-8 text-blue-600" />
         </div>
-        <h3 className="text-xl font-semibold mb-3">{title}</h3>
+        <h3 className="mb-3 text-xl font-semibold">{title}</h3>
         <p className="text-gray-600">{description}</p>
       </div>
     </motion.div>
@@ -49,16 +55,16 @@ const FeatureCard = ({ title, icon: Icon, description, index }) => {
 const Features = () => {
   return (
     <section id="features" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+      <div className="container px-4 mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          className="mb-12 text-3xl font-bold text-center md:text-4xl"
         >
           Features Designed for Patients, Providers, and Admins
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {features.map((feature, index) => (
             <FeatureCard key={feature.title} {...feature} index={index} />
           ))}
