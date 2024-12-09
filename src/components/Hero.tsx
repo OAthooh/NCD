@@ -8,7 +8,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-center bg-no-repeat bg-cover"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80')",
+          backgroundImage: "url('/ncd-hero.jpg')",
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-r mix-blend-multiply from-blue-600/90 to-blue-900/90" />
